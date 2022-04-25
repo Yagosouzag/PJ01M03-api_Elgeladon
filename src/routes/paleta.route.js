@@ -1,9 +1,11 @@
 const route = require('express').Router();
 const controllerPaletas = require('../controllers/paleta.controller');
+
 const {
   validId,
   validObjectBody,
 } = require('../middlewares/paleta.middleware');
+
 
 route.get('/all-paletas', controllerPaletas.findAllPaletasController);
 route.get(

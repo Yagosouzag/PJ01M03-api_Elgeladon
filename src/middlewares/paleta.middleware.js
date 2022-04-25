@@ -9,7 +9,7 @@ const validId = (req, res, next) => {
 };
 
 const validObjectBody = (req, res, next) => {
-    const paleta = req.body;
+  const paleta = req.body;
   if (
     !paleta ||
     !paleta.sabor ||
@@ -25,6 +25,6 @@ const validObjectBody = (req, res, next) => {
 };
 
 module.exports = {
-    validId,
-    validObjectBody,
+  validId,
+  validObjectBody,
 };
