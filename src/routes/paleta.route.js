@@ -1,10 +1,31 @@
 const route = require('express').Router();
 const controllerPaletas = require('../controllers/paleta.controller');
+const {
+  validId,
+  validObjectBody,
+} = require('../middlewares/paleta.middleware');
 
-route.get('/todas-paletas', controllerPaletas.findAllPaletasController);
-route.get('/paleta/:id', controllerPaletas.findByIdPaletaController);
-route.post('/create', controllerPaletas.createPaletaController);
-route.put('/update/:id', controllerPaletas.updatePaletaController);
-route.delete('/delete/:id', controllerPaletas.deletePaletaController);
+route.get('/all-paletas', controllerPaletas.findAllPaletasController);
+route.get(
+  '/one-paleta/:id',
+  validId,
+  controllerPaletas.findByIdPaletaController,
+);
+route.post(
+  '/create-paleta',
+  validObjectBody,
+  controllerPaletas.createPaletaController,
+);
+route.put(
+  '/update-paleta/:id',
+  validId,
+  validObjectBody,
+  controllerPaletas.updatePaletaController,
+);
+route.delete(
+  '/delete-paleta/:id',
+  validId,
+  controllerPaletas.deletePaletaController,
+);
 
 module.exports = route;
